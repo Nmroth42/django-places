@@ -21,12 +21,14 @@ importlib-metadata==3.0.0  # via flake8
 isort==5.6.4              # via -r requirements/dev.in, pytest-isort
 mccabe==0.6.1             # via flake8
 oauthlib==3.1.0           # via requests-oauthlib
+psycopg2==2.8.6           # via -r requirements/common.in
 pycodestyle==2.6.0        # via autopep8, flake8
 pycparser==2.20           # via cffi
 pyflakes==2.2.0           # via flake8
 pyjwt[crypto]==1.7.1      # via django-allauth
 pyopenssl==19.1.0         # via -r requirements/common.in
 pytest-isort==1.2.0       # via -r requirements/dev.in
+python-dotenv==0.15.0     # via -r requirements/common.in
 python3-openid==3.2.0     # via django-allauth
 pytz==2020.4              # via django
 requests-oauthlib==1.3.0  # via django-allauth

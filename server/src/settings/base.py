@@ -15,6 +15,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 from os.path import join
 from sys import path
+from dotenv import find_dotenv, load_dotenv
+
+load_dotenv(find_dotenv())
 
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(
@@ -30,15 +33,13 @@ path.append(join(BASE_DIR, 'server', 'src', 'apps'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '05o!hxym4rzido09o0^ms59l8j28=ijlf&5wsl!+i+vm_5q!!+'
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY'),  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET'), #app key
 
 SITE_ID = 1
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home'
 
 ALLOWED_HOSTS = []
 
@@ -63,6 +64,7 @@ INSTALLED_APPS = (
 
     # Project Applications
     'users.apps.UsersConfig',
+    'places.apps.PlacesConfig',
 )
 
 
@@ -130,10 +132,17 @@ WSGI_APPLICATION = 'wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
+
+
+
 
 
 # Internationalization

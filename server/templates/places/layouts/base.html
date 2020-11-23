@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>places</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="{% static 'places/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'places/css/custom.min.css' %}" id="theme-stylesheet" />
+  </head>
+
+  <body style="padding-top: 120px;">
+    <div class="container">
+      {% include 'places/components/header.html' %} {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'places/js/jquery.min.js' %}"></script>
+    <script src="{% static 'places/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'places/js/custom.js' %}"></script>
+  </body>
+</html>
