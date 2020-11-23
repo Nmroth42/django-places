@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
         os.path.dirname(
             os.path.abspath(__file__)))))
 
-path.append(join(BASE_DIR, 'appserver', 'src', 'apps'))
+path.append(join(BASE_DIR, 'server', 'src', 'apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -111,7 +111,7 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'appserver', 'assets'),
+    os.path.join(BASE_DIR, 'server', 'assets'),
 )
 
 STATIC_URL = '/static/'
