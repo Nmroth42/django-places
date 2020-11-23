@@ -8,5 +8,5 @@ from places import views as places
 
 urlpatterns = [
     path('accounts/',include('allauth.urls')),
-    path('accounts/logout/$', LogoutView.as_view(next_page='home'),name='logout'),
+    path('accounts/logout/', LogoutView.as_view(next_page='home'),name='logout'),
 ]
