@@ -1,9 +1,29 @@
+{% load socialaccount %}
+{% providers_media_js %}
 <header class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
   <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-    </div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+         <!-- todo: make button instead of link -->
+         {% if user.is_authenticated %}
+          <div>Hello {{user.username}}</div>
+              <a href="{% url 'logout' %}"> Log out </a><br>
+         {% else %}
+         <a
+           class="nav-link"
+           href="{% provider_login_url "facebook" method="js_sdk" %}"
+           >
+              Войти с помощью Facebook
+         </a>
+
+         {% endif %}
+
+
+      </li>
+    </ul>
+    <div class="collapse navbar-collapse" id="navbarResponsive"></div>
   </div>
 </header>

@@ -8,9 +8,7 @@ from places import views as places
 urlpatterns = [
     path(
         'home',
-        places.PlacesListView.as_view(
-            template_name='places/home.html'
-        ),
+        places.PlacesListView.as_view( template_name='places/home.html'),
         name='home'
     ),
 ]
