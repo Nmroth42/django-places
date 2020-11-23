@@ -1,0 +1,8 @@
+-r common.in
+
+autopep8==1.5.3
+flake8==3.8.3
+docformatter
+unify
+pytest-isort
+isort
