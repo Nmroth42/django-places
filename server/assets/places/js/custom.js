@@ -20,7 +20,7 @@
 
   $('body').on('click', '.source-button', function(e) {
     e.preventDefault();
-    
+
     var html = $(this).parent().html();
     html = cleanSource(html);
     $("#source-modal pre").text(html);

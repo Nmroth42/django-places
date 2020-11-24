@@ -33,6 +33,7 @@ path.append(join(BASE_DIR, 'server', 'src', 'apps'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '05o!hxym4rzido09o0^ms59l8j28=ijlf&5wsl!+i+vm_5q!!+'
 
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
 SITE_ID = 1
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
@@ -61,6 +62,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'django_extensions',
+    'leaflet',
 
     # Project Applications
     'users.apps.UsersConfig',
@@ -84,27 +86,27 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-SOCIALACCOUNT_PROVIDERS = \
-    {'facebook':
-       {'METHOD': 'oauth2',
-        'SCOPE': ['email','public_profile', 'user_friends'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'FIELDS': [
-            'id',
-            'email',
-            'name',
-            'first_name',
-            'last_name',
-            'verified',
-            'locale',
-            'timezone',
-            'link',
-            'gender',
-            'updated_time'],
-        'EXCHANGE_TOKEN': True,
-        'LOCALE_FUNC': lambda request: 'kr_KR',
-        'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.4'}}
+# SOCIALACCOUNT_PROVIDERS = \
+#     {'facebook':
+#        {'METHOD': 'oauth2',
+#         'SCOPE': ['email','public_profile', 'user_friends'],
+#         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+#         'FIELDS': [
+#             'id',
+#             'email',
+#             'name',
+#             'first_name',
+#             'last_name',
+#             'verified',
+#             'locale',
+#             'timezone',
+#             'link',
+#             'gender',
+#             'updated_time'],
+#         'EXCHANGE_TOKEN': True,
+#         'LOCALE_FUNC': lambda request: 'kr_KR',
+#         'VERIFIED_EMAIL': False,
+#         'VERSION': 'v2.4'}}
 
 ROOT_URLCONF = 'main.urls'
 

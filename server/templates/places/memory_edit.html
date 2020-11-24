@@ -1,0 +1,42 @@
+{% extends 'places/layouts/base.html' %}
+{% load static %}
+{% block content %}
+<script defer>
+    function initMap() {
+        var default_location = {
+          lat: {{ memory_form.initial.lat }},
+          lng: {{ memory_form.initial.lng }},
+        };
+
+        var map = new google.maps.Map(
+          document.getElementById('map'),
+          {
+            zoom: 10,
+            center: default_location,
+          },
+        );
+
+        var marker = new google.maps.Marker({map: map});
+
+        google.maps.event.addListener(map, 'click', function (event) {
+            marker.setPosition(event.latLng)
+            document.getElementByName('lat').value = event.latLng.lat();
+            document.getElementByName('lng').value = event.latLng.lng();
+        });
+    }
+</script>
+
+<script defer src="https://maps.googleapis.com/maps/api/js?key={{ memory_form.initial.GOOGLE_MAPS_API_KEY }}&callback=initMap">
+</script>
+
+<form class="mb-5" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ memory_form.as_p }}
+  <div class="border border-primary mb-3" id="map"></div>
+  <div style="display:none">
+    <input name="lat" readonly value={{ memory_form.initial.lat }}>
+    <input name="lng" readonly value={{ memory_form.initial.lng }}>
+  </div>
+  <button class="btn btn-primary" type="submit">Добавить</button>
+</form>
+{% endblock %}

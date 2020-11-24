@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="{% static 'places/css/bootstrap.css' %}" />
-    <link rel="stylesheet" href="{% static 'places/css/custom.min.css' %}" id="theme-stylesheet" />
+    <link rel="stylesheet" href="{% static 'places/css/custom.css' %}" />
   </head>
 
-  <body style="padding-top: 120px;">
+  <body>
     <div class="container">
-      {% include 'places/components/header.html' %} {% block content %}{% endblock %}
+      {% include 'places/components/header.html' %}
+      <div style="padding-top:120px;">{% block content %} <div>
+      {% endblock %}
     </div>
     <script src="{% static 'places/js/jquery.min.js' %}"></script>
     <script src="{% static 'places/js/bootstrap.min.js' %}"></script>
