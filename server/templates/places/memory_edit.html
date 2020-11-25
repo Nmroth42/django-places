@@ -20,8 +20,8 @@
 
         google.maps.event.addListener(map, 'click', function (event) {
             marker.setPosition(event.latLng)
-            document.getElementByName('lat').value = event.latLng.lat();
-            document.getElementByName('lng').value = event.latLng.lng();
+            document.getElementById('lat').value = event.latLng.lat();
+            document.getElementById('lng').value = event.latLng.lng();
         });
     }
 </script>
@@ -32,11 +32,11 @@
 <form class="mb-5" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ memory_form.as_p }}
-  <div class="border border-primary mb-3" id="map"></div>
+  <div class="mb-3" id="map"></div>
   <div style="display:none">
-    <input name="lat" readonly value={{ memory_form.initial.lat }}>
-    <input name="lng" readonly value={{ memory_form.initial.lng }}>
+    <input id="lat" name="lat" readonly value={{ memory_form.initial.lat }}>
+    <input id="lng" name="lng" readonly value={{ memory_form.initial.lng }}>
   </div>
-  <button class="btn btn-primary" type="submit">Добавить</button>
+  <button class="btn btn-primary" type="submit">Сохранить</button>
 </form>
 {% endblock %}

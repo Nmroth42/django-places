@@ -8,10 +8,8 @@ from django.views.generic import View
 from django.shortcuts import redirect
 
 class PlacesListView(ListView):
-    """Return list of Mem."""
-
     model = Memory
-    paginate_by = 2
+
 
 
 class MemoryCreateView(View):
@@ -26,9 +24,9 @@ class MemoryCreateView(View):
 
     def post(self, request):
         memory_form = MemoryForm(request.POST)
-
+        print(request.POST['lat'],)
         if memory_form.is_valid():
             new_memory = memory_form.save(request)
-            return redirect('/memories/', permanent=True)
+            return redirect('/list', permanent=True)
 
         return render(request, 'places/memory_edit.html', {'memory_form': memory_form})

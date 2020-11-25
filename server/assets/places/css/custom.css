@@ -14,5 +14,13 @@ form {
 
 #map {
     height: 400px;
-    width: 600px;
+    max-width: 600px;
+}
+
+.dummy-center {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center
 }

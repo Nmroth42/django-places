@@ -34,13 +34,14 @@ path.append(join(BASE_DIR, 'server', 'src', 'apps'))
 SECRET_KEY = '05o!hxym4rzido09o0^ms59l8j28=ijlf&5wsl!+i+vm_5q!!+'
 
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+GEOAPIFY_STATIC_MAPS_API_KEY = os.getenv('GEOAPIFY_STATIC_MAPS_API_KEY')
 
 SITE_ID = 1
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_REDIRECT_URL = '/list'
 
 ALLOWED_HOSTS = []
 

@@ -1,0 +1,37 @@
+{% extends 'places/layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if memory_list %}
+<ul class="list-unstyled">
+  <form>
+    <button class="btn btn-outline-primary btn-lg mb-5" formaction="{% url 'memory-create' %}">
+      Добавить воспоминание
+    </button>
+  </form>
+  {% for memory in memory_list %}
+  <li class="m mb-3">
+    <div class="card border-primary" style="max-width:600px; ">
+      <div class="card-body">
+        <h4 class="card-title">{{ memory.name }}</h4>
+        <small>Комментарий</small>
+        <p class="card-text">{{ memory.comment }}</p>
+        <img class="img-fluid" src="{{ memory.get_image_url }}">
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="dummy-center">
+  <div>
+    <h5>У вас нет ни одного воспоминания</h5>
+    <form>
+      <button class="btn btn-outline-primary btn-lg" formaction="{% url 'memory-create' %}">
+        Добавить воспоминание
+      </button>
+    </form>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
