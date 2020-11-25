@@ -1,0 +1,10 @@
+{% extends 'places/layouts/base.html' %}
+{% load static %}
+{% block content %}
+<div class="jumbotron">
+  <form action="" method="post">{% csrf_token %}
+    <p>Вы точно хотите удалить "{{ place.name }}"?</p>
+    <input type="submit" class="btn btn-danger" value="Подтвердить" />
+  </form>
+</div>
+{% endblock %}

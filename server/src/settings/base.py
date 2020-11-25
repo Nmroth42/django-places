@@ -41,7 +41,7 @@ SITE_ID = 1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_REDIRECT_URL = '/list'
+LOGIN_REDIRECT_URL = '/place-list'
 LANDING_URL = '/'
 
 ALLOWED_HOSTS = []

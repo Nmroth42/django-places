@@ -2,21 +2,27 @@
 {% load static %}
 {% block content %}
 
-{% if memory_list %}
+{% if place_list %}
 <ul class="list-unstyled">
   <form>
-    <button class="btn btn-outline-primary btn-lg mb-5" formaction="{% url 'memory-create' %}">
+    <button class="btn btn-outline-primary btn-lg mb-5" formaction="{% url 'place-create' %}">
       Добавить воспоминание
     </button>
   </form>
-  {% for memory in memory_list %}
+  {% for place in place_list %}
   <li class="m mb-3">
     <div class="card border-primary" style="max-width:600px; ">
       <div class="card-body">
-        <h4 class="card-title">{{ memory.name }}</h4>
+        <small>Название</small>
+        <h4 class="card-title">{{ place.name }}</h4>
         <small>Комментарий</small>
-        <p class="card-text">{{ memory.comment }}</p>
-        <img class="img-fluid" src="{{ memory.get_image_url }}">
+        <p class="card-text">{{ place.comment }}</p>
+        <img class="img-fluid" src="{{ place.get_image_url }}">
+        <form>
+          <button class="btn mt-3  btn-outline-primary btn-lg" formaction="{% url 'place-delete' place.pk %}">
+            Удалить
+          </button>
+        </form>
       </div>
     </div>
   </li>
@@ -27,7 +33,7 @@
   <div>
     <h5>У вас нет ни одного воспоминания</h5>
     <form>
-      <button class="btn btn-outline-primary btn-lg" formaction="{% url 'memory-create' %}">
+      <button class="btn btn-outline-primary btn-lg" formaction="{% url 'place-create' %}">
         Добавить воспоминание
       </button>
     </form>

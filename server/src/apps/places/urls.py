@@ -8,7 +8,7 @@ from places import views as places
 
 urlpatterns = [
     path(
-        'list',
+        'place-list',
         places.PlaceListView.as_view(),
         name='list'
     ),

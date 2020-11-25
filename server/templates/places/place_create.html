@@ -4,8 +4,8 @@
 <script defer>
     function initMap() {
         var default_location = {
-          lat: {{ memory_form.initial.lat }},
-          lng: {{ memory_form.initial.lng }},
+          lat: {{ place_form.initial.lat }},
+          lng: {{ place_form.initial.lng }},
         };
 
         var map = new google.maps.Map(
@@ -30,12 +30,12 @@
     }
 </script>
 
-<script defer src="https://maps.googleapis.com/maps/api/js?key={{ memory_form.initial.GOOGLE_MAPS_API_KEY }}&callback=initMap">
+<script defer src="https://maps.googleapis.com/maps/api/js?key={{ place_form.initial.GOOGLE_MAPS_API_KEY }}&callback=initMap">
 </script>
 
 <form class="mb-5" method="post" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ memory_form.as_p }}
+  {{ place_form.as_p }}
   <div class="mb-3" id="map"></div>
   <button class="btn btn-primary" type="submit">Сохранить</button>
 </form>
