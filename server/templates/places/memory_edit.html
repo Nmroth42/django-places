@@ -20,8 +20,12 @@
 
         google.maps.event.addListener(map, 'click', function (event) {
             marker.setPosition(event.latLng)
-            document.getElementById('lat').value = event.latLng.lat();
-            document.getElementById('lng').value = event.latLng.lng();
+            document.getElementById('id_latitude').value = event.latLng.lat();
+            document.getElementById('id_longitude').value = event.latLng.lng();
+            document.getElementById('id_zoom').value = map.getZoom();
+        });
+        google.maps.event.addListener(map, 'zoom_changed', function() {
+            document.getElementById('id_zoom').value = map.getZoom();
         });
     }
 </script>
@@ -33,10 +37,6 @@
   {% csrf_token %}
   {{ memory_form.as_p }}
   <div class="mb-3" id="map"></div>
-  <div style="display:none">
-    <input id="lat" name="lat" readonly value={{ memory_form.initial.lat }}>
-    <input id="lng" name="lng" readonly value={{ memory_form.initial.lng }}>
-  </div>
   <button class="btn btn-primary" type="submit">Сохранить</button>
 </form>
 {% endblock %}
