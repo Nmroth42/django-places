@@ -12,6 +12,11 @@ from places.mixins import UserAuthorMixinListView, AuthRequiredMixin
 class PlacesListView(UserAuthorMixinListView, ListView):
     model = Memory
 
+    def get_queryset(self):
+        queryset = super(PlacesListView, self).get_queryset()
+        queryset = queryset.filter(owner=self.request.user)
+        return queryset
+
 
 class MemoryCreateView(AuthRequiredMixin, View):
     def get(self, request):
