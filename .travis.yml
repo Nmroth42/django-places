@@ -1,0 +1,11 @@
+language: python# python versions
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.dev.txt
+  - pip install coveralls
+script:
+  - python -m coverage run manage.py test apps/places/tests --pattern="tests_*.py"
+after_success:
+  coveralls

@@ -19,13 +19,13 @@
         var marker = new google.maps.Marker({map: map});
 
         google.maps.event.addListener(map, 'click', function (event) {
-            marker.setPosition(event.latLng)
-            document.getElementById('id_latitude').value = event.latLng.lat();
-            document.getElementById('id_longitude').value = event.latLng.lng();
-            document.getElementById('id_zoom').value = map.getZoom();
+          marker.setPosition(event.latLng)
+          document.getElementById('id_latitude').value = event.latLng.lat();
+          document.getElementById('id_longitude').value = event.latLng.lng();
+          document.getElementById('id_zoom').value = map.getZoom();
         });
         google.maps.event.addListener(map, 'zoom_changed', function() {
-            document.getElementById('id_zoom').value = map.getZoom();
+          document.getElementById('id_zoom').value = map.getZoom();
         });
     }
 </script>

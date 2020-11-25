@@ -10,7 +10,7 @@ urlpatterns = [
     path(
         'place-list',
         places.PlaceListView.as_view(),
-        name='list'
+        name='place-list'
     ),
     path('place-create/', places.PlaceCreateView.as_view(), name='place-create'),
     path('', TemplateView.as_view(template_name="places/landing.html"), name='place-landing'),
