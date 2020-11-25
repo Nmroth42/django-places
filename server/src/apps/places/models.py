@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.conf import settings
 
-class Memory(models.Model):
+class Place(models.Model):
     owner = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

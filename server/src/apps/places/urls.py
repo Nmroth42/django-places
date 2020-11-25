@@ -9,11 +9,11 @@ from places import views as places
 urlpatterns = [
     path(
         'list',
-        places.PlacesListView.as_view( template_name='places/memory_list.html'),
+        places.PlaceListView.as_view(),
         name='list'
     ),
-    path('create/', places.MemoryCreateView.as_view(), name='memory-create'),
-    path('', TemplateView.as_view(template_name="places/landing.html"), name='landing'),
-    path('place/<int:pk>/delete/', places.PlaceDeleteView.as_view(template_name="places/place_delete.html"), name='place-delete'),
+    path('place-create/', places.PlaceCreateView.as_view(), name='place-create'),
+    path('', TemplateView.as_view(template_name="places/landing.html"), name='place-landing'),
+    path('place/<int:pk>/delete/', places.PlaceDeleteView.as_view(), name='place-delete'),
 
 ]

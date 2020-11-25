@@ -1,8 +1,8 @@
 from django import forms
-from .models import Memory
+from .models import Place
 
 
-class MemoryForm(forms.Form):
+class PlaceForm(forms.Form):
     latitude = forms.FloatField(widget=forms.HiddenInput())
     longitude = forms.FloatField(widget=forms.HiddenInput())
     zoom = forms.FloatField(widget=forms.HiddenInput())
@@ -31,8 +31,8 @@ class MemoryForm(forms.Form):
             raise ValidationError(code="invalid")
 
     def save(self, request):
-        new_memory = Memory.objects.create(
+        new_place = Place.objects.create(
             **self.cleaned_data,
             owner = request.user
             )
-        return new_memory
+        return new_place
