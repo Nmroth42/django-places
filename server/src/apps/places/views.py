@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import (CreateView, DetailView, ListView,
-                                  TemplateView, UpdateView)
+                                  TemplateView, UpdateView, DeleteView)
 from places.models import Memory
 from .forms import MemoryForm
 from django.conf import settings
@@ -8,6 +8,7 @@ from django.views.generic import View
 from django.db import transaction
 from django.shortcuts import redirect
 from places.mixins import UserAuthorMixinListView, AuthRequiredMixin
+from django.urls import reverse_lazy
 
 class PlacesListView(UserAuthorMixinListView, ListView):
     model = Memory
@@ -36,3 +37,8 @@ class MemoryCreateView(AuthRequiredMixin, View):
             return redirect('/list', permanent=True)
 
         return render(request, 'places/memory_edit.html', {'memory_form': memory_form})
+
+class PlaceDeleteView(DeleteView):
+    model = Memory
+    template_name = 'place_delete.html'
+    success_url = reverse_lazy('list')

@@ -14,5 +14,6 @@ urlpatterns = [
     ),
     path('create/', places.MemoryCreateView.as_view(), name='memory-create'),
     path('', TemplateView.as_view(template_name="places/landing.html"), name='landing'),
+    path('place/<int:pk>/delete/', places.PlaceDeleteView.as_view(template_name="places/place_delete.html"), name='place-delete'),
 
 ]
