@@ -6,6 +6,6 @@ install:
   - pip install -r requirements.dev.txt
   - pip install coveralls
 script:
-  - python -m coverage run manage.py test apps/places/tests --pattern="tests_*.py"
+  - python -m coverage run manage.py test places
 after_success:
   coveralls
