@@ -10,7 +10,7 @@ class Memory(models.Model):
         related_name='memories',
     )
 
-    name  = models.CharField(
+    name = models.CharField(
         max_length=55,
         verbose_name='Название места',
     )
@@ -32,9 +32,11 @@ class Memory(models.Model):
         decimal_places=5,
         default=0.0
     )
+    zoom = models.IntegerField(default=10)
 
+    @property
     def get_image_url(self):
-        return f"https://maps.geoapify.com/v1/staticmap?style=osm-carto&center=lonlat:{self.longitude},{self.latitude}&zoom=16&marker=lonlat:{self.longitude},{self.latitude};color:%23ff0000;size:medium&apiKey={settings.GEOAPIFY_STATIC_MAPS_API_KEY}"
+        return f"https://maps.geoapify.com/v1/staticmap?style=osm-carto&center=lonlat:{self.longitude},{self.latitude}&zoom={self.zoom}&marker=lonlat:{self.longitude},{self.latitude};color:%23ff0000;size:medium&apiKey={settings.GEOAPIFY_STATIC_MAPS_API_KEY}"
 
     def __str__(self):
         return self.name

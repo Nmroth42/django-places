@@ -42,8 +42,10 @@ SITE_ID = 1
 DEBUG = True
 
 LOGIN_REDIRECT_URL = '/list'
+LANDING_URL = '/'
 
 ALLOWED_HOSTS = []
+DEFAULT_COORDINATES =  {'latitude':"56.0183900", 'longitude':"92.8671700"}
 
 
 # Application definition
