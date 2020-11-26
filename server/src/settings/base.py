@@ -1,6 +1,7 @@
 import os
 from os.path import join
 from sys import path
+
 from dotenv import find_dotenv, load_dotenv
 
 load_dotenv(find_dotenv())
@@ -21,7 +22,7 @@ SITE_ID = 1
 
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 GEOAPIFY_STATIC_MAPS_API_KEY = os.getenv('GEOAPIFY_STATIC_MAPS_API_KEY')
-DEFAULT_COORDINATES =  {'latitude':"56.0183900", 'longitude':"92.8671700"}
+DEFAULT_COORDINATES = {'latitude': '56.0183900', 'longitude': '92.8671700'}
 SECRET_KEY = '05o!hxym4rzido09o0^ms59l8j28=ijlf&5wsl!+i+vm_5q!!+'
 
 ROOT_URLCONF = 'main.urls'
@@ -31,6 +32,7 @@ LANDING_URL = '/'
 
 ALLOWED_HOSTS = ['*']
 DEBUG = True
+
 
 ##################################################################
 # Application definition
@@ -51,12 +53,12 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'django_extensions',
-    'leaflet',
 
     # Project Applications
     'users.apps.UsersConfig',
     'places.apps.PlacesConfig',
 )
+
 
 ##################################################################
 # Templates, middleware settings
@@ -67,7 +69,6 @@ MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',

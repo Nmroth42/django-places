@@ -10,7 +10,7 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func.view_class, PlaceListView)
 
     def test_place_delete_url_is_resolved(self):
-        url = reverse('place-delete',  kwargs={'pk': '0'})
+        url = reverse('place-delete', kwargs={'pk': '0'})
         self.assertEquals(resolve(url).func.view_class, PlaceDeleteView)
 
     def test_place_create_url_is_resolved(self):

@@ -1,12 +1,13 @@
-from django.test import TestCase
 from django.contrib.auth.models import User
+from django.test import TestCase
 
 from places.models import Place
 
 
 class PlaceTestCase(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user('foo', 'testemail@gmail.com', 'bar')
+        self.user = User.objects.create_user(
+            'foo', 'testemail@gmail.com', 'bar')
 
     def test_place_str(self):
         name, comment = 'Test Place', 'Test Comment'

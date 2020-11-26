@@ -1,6 +1,7 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-from django.conf import settings
+
 
 class Place(models.Model):
     owner = models.ForeignKey(
@@ -30,13 +31,13 @@ class Place(models.Model):
         verbose_name='Долгота',
         max_digits=10,
         decimal_places=5,
-        default=0.0
+        default=0.0,
     )
     zoom = models.IntegerField(default=10)
 
     @property
     def get_image_url(self):
-        return f"https://maps.geoapify.com/v1/staticmap?style=osm-carto&center=lonlat:{self.longitude},{self.latitude}&zoom={self.zoom}&marker=lonlat:{self.longitude},{self.latitude};color:%23ff0000;size:medium&apiKey={settings.GEOAPIFY_STATIC_MAPS_API_KEY}"
+        return f'https://maps.geoapify.com/v1/staticmap?style=osm-carto&center=lonlat:{self.longitude},{self.latitude}&zoom={self.zoom}&marker=lonlat:{self.longitude},{self.latitude};color:%23ff0000;size:medium&apiKey={settings.GEOAPIFY_STATIC_MAPS_API_KEY}'
 
     def __str__(self):
         return self.name

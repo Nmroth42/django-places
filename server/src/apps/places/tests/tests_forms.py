@@ -1,7 +1,6 @@
 from django.test import TestCase
 
 from places.forms import PlaceForm
-from places.models import Place
 
 
 class TestForms(TestCase):
