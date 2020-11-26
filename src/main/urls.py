@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 
+
 urlpatterns = [
     path('accounts/', include('apps.users.urls')),
     path('place/', include('apps.places.urls')),

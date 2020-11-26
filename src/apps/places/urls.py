@@ -1,7 +1,7 @@
 from django.urls import path
 
-# from users import views as users
 from places import views as places
+
 
 urlpatterns = [
     path(

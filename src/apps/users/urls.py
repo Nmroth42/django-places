@@ -3,6 +3,7 @@ from django.urls import include, path
 from django.views import View
 from django.views.generic import TemplateView
 
+
 urlpatterns = [
     path(
         'accounts/logout/',

@@ -6,7 +6,6 @@ from django.views.generic import DeleteView, ListView, View
 
 from places.mixins import AuthRequiredMixin, UserAuthorMixinListView
 from places.models import Place
-
 from .forms import PlaceForm
 
 
