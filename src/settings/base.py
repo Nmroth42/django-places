@@ -3,9 +3,6 @@ from os.path import join
 from sys import path
 
 from dotenv import find_dotenv, load_dotenv
-import django_heroku
-
-django_heroku.settings(locals())
 
 load_dotenv(find_dotenv())
 
@@ -75,7 +72,7 @@ MIDDLEWARE = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 )
 
 TEMPLATES = [
