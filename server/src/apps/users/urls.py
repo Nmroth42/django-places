@@ -7,6 +7,6 @@ from users import views as users
 from places import views as places
 
 urlpatterns = [
-    path('accounts/',include('allauth.urls')),
-    path('accounts/logout/', LogoutView.as_view(next_page='home'),name='logout'),
+    path('accounts/logout/', LogoutView.as_view(next_page='place-landing'),name='logout'),
+    path('accounts/', include('allauth.urls')),
 ]

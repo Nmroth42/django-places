@@ -1,9 +1,7 @@
-{% load socialaccount %}
-{% providers_media_js %}
+{% if user.is_authenticated %}
 <header class="navbar fixed-top navbar-light bg-light">
   <div class="container">
     <ul class="navbar-nav">
-      {% if user.is_authenticated %}
       <li class="nav-item mr-3 container">
         <div class="row" style="line-height:45px;">
           <img
@@ -32,17 +30,8 @@
           </button>
         </form>
       </li>
-      {% else %}
-      <li class="nav-item">
-        <form>
-          <button
-            class="btn btn-outline-primary btn-lg"
-            formaction="{% provider_login_url "facebook" method="js_sdk" %}">
-            Войти с помощью Facebook
-          </button>
-        </form>
-      </li>
-      {% endif %}
     </ul>
   </div>
 </header>
+{% else %}
+{% endif %}

@@ -1,5 +1,6 @@
 from django import forms
 from .models import Place
+from django.core.exceptions import ValidationError
 
 
 class PlaceForm(forms.Form):
@@ -14,21 +15,21 @@ class PlaceForm(forms.Form):
         if -90 <= latitude <= 90:
             return latitude
         else:
-            raise ValidationError(code="invalid")
+            raise ValidationError('Latitude must be in a range from -90 to 90', code='invalid')
 
     def clean_longitude(self):
         longitude = self.cleaned_data["longitude"]
         if -180 <= longitude <= 180:
             return longitude
         else:
-            raise ValidationError(code="invalid")
+            raise ValidationError('Longitude must be in a range from -180 to 180', code='invalid')
 
     def clean_zoom(self):
         zoom = self.cleaned_data["zoom"]
         if 0 <= zoom <= 21:
             return int(zoom)
         else:
-            raise ValidationError(code="invalid")
+            raise ValidationError('Zoom must be in a range from 0 to 21', code='invalid')
 
     def save(self, request):
         new_place = Place.objects.create(

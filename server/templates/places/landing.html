@@ -1,7 +1,18 @@
 {% extends 'places/layouts/base.html' %}
-{% load static %}
 {% block content %}
+{% load socialaccount %}
+{% providers_media_js %}
 <div class="jumbotron">
   <h5>Веб-приложение, позволяющее людям хранить воспоминания о посещаемых местах.</h5>
+  {% if user.is_authenticated %}
+  {% else %}
+    <form>
+      <button
+        class="btn btn-outline-primary btn-lg"
+        formaction="{% provider_login_url "facebook" method="js_sdk" %}">
+        Войти с помощью Facebook
+      </button>
+    </form>
+    {% endif %}
 </div>
 {% endblock %}

@@ -8,12 +8,11 @@ from places import views as places
 
 urlpatterns = [
     path(
-        'place-list',
+        'list/',
         places.PlaceListView.as_view(),
         name='place-list'
     ),
-    path('place-create/', places.PlaceCreateView.as_view(), name='place-create'),
-    path('', TemplateView.as_view(template_name="places/landing.html"), name='place-landing'),
-    path('place/<int:pk>/delete/', places.PlaceDeleteView.as_view(), name='place-delete'),
+    path('create/', places.PlaceCreateView.as_view(), name='place-create'),
+    path('<int:pk>/delete/', places.PlaceDeleteView.as_view(), name='place-delete'),
 
 ]

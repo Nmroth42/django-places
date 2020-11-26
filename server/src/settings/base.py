@@ -25,10 +25,11 @@ DEFAULT_COORDINATES =  {'latitude':"56.0183900", 'longitude':"92.8671700"}
 SECRET_KEY = '05o!hxym4rzido09o0^ms59l8j28=ijlf&5wsl!+i+vm_5q!!+'
 
 ROOT_URLCONF = 'main.urls'
-LOGIN_REDIRECT_URL = '/place-list'
+LOGIN_REDIRECT_URL = '/place/list'
 LANDING_URL = '/'
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 DEBUG = True
 
 ##################################################################

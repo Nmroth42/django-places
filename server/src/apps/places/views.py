@@ -35,12 +35,12 @@ class PlaceCreateView(AuthRequiredMixin, View):
         place_form = PlaceForm(request.POST)
         if place_form.is_valid():
             new_place = place_form.save(request)
-            return redirect('/list', permanent=True)
+            return redirect(reverse('place-list'), permanent=True)
 
-        return render(request, 'places/place_edit.html', {'place_form': place_form})
+        return render(request, 'places/place_create.html', {'place_form': place_form})
 
 
 class PlaceDeleteView(UserAuthorMixinListView, DeleteView):
     model = Place
     template_name='places/place_delete.html'
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('place-list')
